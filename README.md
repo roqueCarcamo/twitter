@@ -1,4 +1,4 @@
-# twitter
+# Twitter
 Sistema de avisos, donde los usuarios podrán publicar su contenido en un muro público.
 
 # Formatos JSON
@@ -6,7 +6,7 @@ Sistema de avisos, donde los usuarios podrán publicar su contenido en un muro p
 # Guardar Anuncio
 Url: http://127.0.0.1:3000/api/anuncios
 Tipo: POST
-{
+JSON: {
 	"contenido": "Nuevo anuncio",
 	"autor":"Rodolfo",
 	"ubicacion":"Cartagena"
@@ -19,6 +19,7 @@ Respuesta: {
 # Listar Anuncios
 Url: http://127.0.0.1:3000/api/anuncios
 Tipo: GET
+JSON: Ninguno.
 
 Respuesta: 
 [
