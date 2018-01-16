@@ -1,6 +1,26 @@
 # Twitter
 Sistema de avisos, donde los usuarios podrán publicar su contenido en un muro público.
 
+# Requsitos
+node js ^8.x.x
+
+# Instalador 
+Clonar el repositorio : 
+git clone https://github.com/roqueCarcamo/twitter.git
+
+# Instalar las dependencias
+npm install
+ 
+# Depencias
+* "body-parser": "^1.18.2",
+* "express": "^4.16.2",
+* "moment": "^2.20.1",
+* "morgan": "^1.9.0",
+* "winston": "^2.4.0"
+
+# Correr el proyecto
+node index.js 
+
 # Formatos JSON
 
 # Guardar Anuncio
@@ -16,8 +36,13 @@ Respuesta: {
 	"mensaje": "Anuncio creado con éxito.!"
 }
 
+Tipo datos: 
+* contenido = String
+* autor = String
+* ubicacion = String
+
 # Consultar Anuncio por Id
-Url: http://127.0.0.1:3000/twitter/anuncios/2
+Url: http://127.0.0.1:3000/twitter/anuncios/:Id
 Tipo: GET
 JSON: Ninguno.
 
@@ -57,7 +82,7 @@ Respuesta:
  ]
  
 # Actualizar Anuncio por Id
-Url: http://127.0.0.1:3000/twitter/anuncios/2
+Url: http://127.0.0.1:3000/twitter/anuncios/:Id
 Tipo: PUT
 JSON: {
     "contenido": "Nuevo anuncio",
@@ -71,7 +96,7 @@ Respuesta:
 }
 
 # Eliminar Anuncio por Id
-Url: http://127.0.0.1:3000/twitter/anuncios/2
+Url: http://127.0.0.1:3000/twitter/anuncios/:Id
 Tipo: DELETE
 JSON: Ninguno
 
