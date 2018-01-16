@@ -50,17 +50,17 @@ exports.post = (req, res, next) => {
     
     var tamano = [];
     if(anuncio.contenido.length > 280){
-        var contenido = "contenido";
+        var contenido = "contenido, Máximo 280 caracteres";
         tamano.push(contenido);
     }
     
     if(anuncio.autor.length > 32){
-        var autor = "autor";
+        var autor = "autor, Máximo 32 caracteres";
         tamano.push(autor);
     }
     
     if(anuncio.ubicacion.length > 64){
-        var ubicacion = "ubicacion";
+        var ubicacion = "ubicacion, Máximo 64 caracteres";
         tamano.push(ubicacion);
     }
     
