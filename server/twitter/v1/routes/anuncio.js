@@ -5,11 +5,11 @@ const router = require("express").Router();
 const controller = require("./../controllers/anuncios");
 
 /*
- * /api/users/     GET    - READ ALL
- * /api/users/     POST   - CREATE
- * /api/users/:id  GET    - READ ONE
- * /api/users/:id  PUT    - UPDATE
- * /api/users/:id  DELETE - DELETE
+ * /twitter/anuncios/     GET    - READ ALL
+ * /twitter/anuncios/     POST   - CREATE
+ * /twitter/anuncios/:id  GET    - READ ONE
+ * /twitter/anuncios/:id  PUT    - UPDATE
+ * /twitter/anuncios/:id  DELETE - DELETE
  */
 
 router.route("/")

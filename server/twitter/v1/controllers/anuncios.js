@@ -66,15 +66,37 @@ exports.post = (req, res, next) => {
     res.json({"mensaje":"Anuncio creado con éxito.!"});
 };
 
-function esAnuncio(anuncio, id) { 
-    return anuncio.id = id;
-}
-
 exports.get = (req, res, next) => {
     logger.info(req.params.id);
     let id = req.params.id;
     
-    res.json(anuncios.find(esAnuncio()));
+    let bandera = false;
+    
+    var anun = {
+        "id" : 0,
+        "contenido" : "",
+        "autor" : "",
+        "ubicacion" : "",
+        "fechaCreacion" : "",
+        "fechaActualizacion":""
+    }
+	
+	for (let i = 0; i < anuncios.length; i++){
+		if (anuncios[i].id == id) {
+	        anun.id = anuncios[i].id,
+	        anun.contenido = anuncios[i].contenido,
+	        anun.autor = anuncios[i].autor,
+            anun.ubicacion = anuncios[i].ubicacion,
+            anun.fechaCreacion = anuncios[i].fechaCreacion,
+            anun.fechaActualizacion = anuncios[i].fechaActualizacion		
+	   		bandera = true;
+	   	}
+     }
+     if (bandera) {
+   	    res.json(anun)
+     } else {
+   	    res.json({"mensaje": "El id del anuncio no fue encontrado"})
+     }
 };
 
 exports.put = (req, res, next) => {
@@ -97,13 +119,12 @@ exports.put = (req, res, next) => {
 	   		}		
 	   		bandera = true;
 	   	}
-}
-       if (bandera) {
-   	        res.json({"mensaje": "Anuncio modificado correctamente."})
-        }else{
-   	        res.json({"mensaje": "Hubo un problema al modificar el anuncio. El id del anuncio no fue encontrado"})
-}
-
+     }
+     if (bandera) {
+   	    res.json({"mensaje": "Anuncio modificado correctamente."})
+     } else {
+   	    res.json({"mensaje": "Hubo un problema al modificar el anuncio. El id del anuncio no fue encontrado"})
+     }
 };
 
 exports.delete = (req, res, next) => {
@@ -117,11 +138,11 @@ exports.delete = (req, res, next) => {
 	   		anuncios.splice(i, 1)
 	   		bandera = true;
 	   	}
-   }
+     }
 
    if (bandera) {
-   	res.json({"mensaje":"Anuncio eliminado correctamente."})
-   }else{
-   	res.json({"mensaje":"Hubo un problema al eliminar el anuncio. El id del anuncio no fue encontrado"})
-}
+   	 res.json({"mensaje":"Anuncio eliminado correctamente."})
+   } else {
+   	 res.json({"mensaje":"Hubo un problema al eliminar el anuncio. El id del anuncio no fue encontrado"})
+   }
 };

@@ -8,22 +8,25 @@ const bodyParser = require('body-parser');
 const api = require("./twitter/v1");
 
 const app = express();
-// Setup middleware
+
+// Configurar middleware
 app.use(morgan("common"));
+
 // parse application/x-www-form-urlencoded 
 app.use(bodyParser.urlencoded({ extended: false }));
+
 // parse application/json 
 app.use(bodyParser.json());
 
-// Setup router and routes
+// Configurar router and routes
 app.use("/twitter", api);
 app.use("/twitter/v1", api);
 
 app.use( (req, res, next) => {
-  logger.info("Route not found");
+  logger.info("Servicio no encontrado");
   res.status(404);
   res.json({
-    "error": "Error. Route not found"
+    "error": "Error. Servicio no encontrado"
   });
 });
 
