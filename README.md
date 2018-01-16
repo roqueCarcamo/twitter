@@ -81,7 +81,7 @@ Respuesta:
     }
  ]
  
-# Actualizar Anuncio por Id
+# Modificar Anuncio por Id
 Url: http://127.0.0.1:3000/twitter/anuncios/:Id
 Tipo: PUT
 JSON: {
@@ -104,4 +104,6 @@ Respuesta:
 {
 	"mensaje": "Anuncio eliminado con éxito.!"
 }
+
+Autor: Rodolfo Roque Cárcamo Mesa
 
