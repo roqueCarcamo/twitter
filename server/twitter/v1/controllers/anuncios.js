@@ -121,9 +121,9 @@ exports.put = (req, res, next) => {
 	   	}
      }
      if (bandera) {
-   	    res.json({"mensaje": "Anuncio modificado correctamente."})
+   	    res.json({"mensaje": "Anuncio modificado con éxito.!"})
      } else {
-   	    res.json({"mensaje": "Hubo un problema al modificar el anuncio. El id del anuncio no fue encontrado"})
+   	    res.json({"mensaje": "El id del anuncio no fue encontrado"})
      }
 };
 
@@ -141,8 +141,8 @@ exports.delete = (req, res, next) => {
      }
 
    if (bandera) {
-   	 res.json({"mensaje":"Anuncio eliminado correctamente."})
+   	 res.json({"mensaje":"Anuncio eliminado con éxito.!"})
    } else {
-   	 res.json({"mensaje":"Hubo un problema al eliminar el anuncio. El id del anuncio no fue encontrado"})
+   	 res.json({"mensaje":"El id del anuncio no fue encontrado"})
    }
 };
