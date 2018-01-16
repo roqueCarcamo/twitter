@@ -4,7 +4,21 @@ const logger = require("winston");
 
 let moment = require("moment")
 
-var anuncios = [];
+var anuncios = [{
+        "id" : 1,
+        "contenido" : "Primer anuncio",
+        "autor" : "Luis Mesa",
+        "ubicacion" : "Barranquilla",
+        "fechaCreacion" : "2018-01-16T10:09:15-05:00",
+        "fechaActualizacion":"2018-01-16T10:09:40-05:00"
+    },{
+        "id" : 2,
+        "contenido" : "Segundo anuncio",
+        "autor" : "Pedro Mesa",
+        "ubicacion" : "Cartagena",
+        "fechaCreacion" : "2018-02-16T10:09:20-05:00",
+        "fechaActualizacion":"2018-03-16T10:09:40-05:00"
+    }];
 
 exports.all = (req, res, next) => {
     res.json(anuncios);
