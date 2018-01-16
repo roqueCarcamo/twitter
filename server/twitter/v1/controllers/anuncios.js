@@ -2,8 +2,9 @@
 
 const logger = require("winston");
 
-var anuncios = [];
+let moment = require("moment")
 
+var anuncios = [];
 
 exports.all = (req, res, next) => {
     res.json(anuncios);
@@ -29,8 +30,8 @@ exports.post = (req, res, next) => {
     }
     
     if(requeridos.length > 0){
-        res.json({"Mensaje":"Los siguientes campos son requeridos",
-                 "Datos" : requeridos});
+        res.json({"mensaje":"Los siguientes campos son requeridos",
+                 "datos" : requeridos});
     }
     
     var tamano = [];
@@ -50,41 +51,30 @@ exports.post = (req, res, next) => {
     }
     
     if(tamano.length > 0){
-        res.json({"Mensaje":"Los siguientes campos exceden el tamaño permitido",
-                 "Datos" : tamano});
+        res.json({"mensaje":"Los siguientes campos exceden el tamaño permitido",
+                 "datos" : tamano});
     }
-    
-    var hoy = new Date();
-    var dd = hoy.getDate();
-    var mm = hoy.getMonth()+1; //hoy es 0!
-    var yyyy = hoy.getFullYear();
-
-    if(dd<10) {
-     dd='0'+dd
-    } 
-
-    if(mm<10) {
-     mm='0'+mm
-    } 
-
-    hoy = mm+'/'+dd+'/'+yyyy;
     var anun = {
         "id" : anuncios.length+1,
         "contenido" : anuncio.contenido,
         "autor" : anuncio.autor,
         "ubicacion" : anuncio.ubicacion,
-        "fechaCreacion" : hoy,
+        "fechaCreacion" : moment().format(),
         "fechaActualizacion":""
     }
     anuncios.push(anun);
-    res.json({"Mensaje":"Anuncio creado con éxito.!"});
+    res.json({"mensaje":"Anuncio creado con éxito.!"});
 };
+
+function esAnuncio(anuncio, id) { 
+    return anuncio.id = id;
+}
 
 exports.get = (req, res, next) => {
     logger.info(req.params.id);
     let id = req.params.id;
-
-    res.json({ "_id": id });
+    
+    res.json(anuncios.find(esAnuncio()));
 };
 
 exports.put = (req, res, next) => {
@@ -92,13 +82,46 @@ exports.put = (req, res, next) => {
     logger.info(req.body);
     let id = req.params.id;
     let update = req.body;
+    
+    let bandera = false;
+	
+	for (let i = 0; i < anuncios.length; i++){
+		if (anuncios[i].id == id) {
+	   		anuncios[i] = {
+	   			id: anuncios[i].id,
+	   			contenido: update.contenido || anuncios[i].contenido,
+	    		autor: update.autor || anuncios[i].autor,
+				ubicacion: update.ubicacion || anuncios[i].ubicacion,
+				fechaCreacion: anuncios[i].fechaCreacion,
+				fechaActualizacion: moment().format()
+	   		}		
+	   		bandera = true;
+	   	}
+}
+       if (bandera) {
+   	        res.json({"mensaje": "Anuncio modificado correctamente."})
+        }else{
+   	        res.json({"mensaje": "Hubo un problema al modificar el anuncio. El id del anuncio no fue encontrado"})
+}
 
-    res.json(update);
 };
 
 exports.delete = (req, res, next) => {
     logger.info(req.params.id);
     let id = req.params.id;
+    
+    let bandera = false;
+	
+	for (let i = 0; i < anuncios.length; i++){
+		if (anuncios[i].id == req.params.id) {
+	   		anuncios.splice(i, 1)
+	   		bandera = true;
+	   	}
+   }
 
-    res.json({ "_id": id });
+   if (bandera) {
+   	res.json({"mensaje":"Anuncio eliminado correctamente."})
+   }else{
+   	res.json({"mensaje":"Hubo un problema al eliminar el anuncio. El id del anuncio no fue encontrado"})
+}
 };
