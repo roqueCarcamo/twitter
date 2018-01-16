@@ -37,9 +37,9 @@ Respuesta: {
 }
 
 Tipo datos: 
-* contenido = String
-* autor = String
-* ubicacion = String
+* contenido = String (Requerido)
+* autor = String (Requerido)
+* ubicacion = String (Requerido)
 
 # Consultar Anuncio por Id
 Url: http://127.0.0.1:3000/twitter/anuncios/:Id
