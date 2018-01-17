@@ -23,6 +23,8 @@ node index.js
 
 # Formatos JSON
 
+[{"key":"Content-Type","value":"application/json","description":""}]
+
 # Guardar Anuncio
 Url: http://127.0.0.1:3000/twitter/anuncios
 Tipo: POST
@@ -45,6 +47,8 @@ Tipo datos:
 Url: http://127.0.0.1:3000/twitter/anuncios/:Id
 Tipo: GET
 JSON: Ninguno.
+
+:Id = Id del anuncio creado. (Requerido)
 
 Respuesta:
 {
@@ -85,10 +89,12 @@ Respuesta:
 Url: http://127.0.0.1:3000/twitter/anuncios/:Id
 Tipo: PUT
 JSON: {
-    "contenido": "Nuevo anuncio",
-    "autor": "Rodolfo",
-    "ubicacion": "Cartagena"
+    "contenido": "Nuevo anuncio modificado",
+    "autor": "Pablo",
+    "ubicacion": "Sincelejo"
 }
+
+:Id = Id del anuncio creado. (Requerido)
 
 Respuesta:
 {
@@ -100,10 +106,42 @@ Url: http://127.0.0.1:3000/twitter/anuncios/:Id
 Tipo: DELETE
 JSON: Ninguno
 
+:Id = Id del anuncio creado. (Requerido)
+
 Respuesta:
 {
 	"mensaje": "Anuncio eliminado con éxito.!"
 }
+
+# Advertencias
+
+* Cuando no se envian los parametros requeridos
+{
+    "mensaje": "Los siguientes campos son requeridos",
+    "datos": [
+        "contenido"
+    ]
+}
+
+* Cuando se exceden el tamaño de caracteres permitidos
+{
+    "mensaje": "Los siguientes campos exceden el tamaño permitido",
+    "datos": [
+        "autor, Máximo 32 caracteres"
+    ]
+}
+
+# Errores
+* Cuando se utiliza una url de un servicio no existente
+{
+    "error": "Error. Servicio no encontrado"
+}
+
+*Errores internos en el servidor
+{
+    "error": Tipo error
+}
+
 
 Autor: Rodolfo Roque Cárcamo Mesa
 

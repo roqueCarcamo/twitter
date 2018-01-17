@@ -83,7 +83,7 @@ exports.post = (req, res, next) => {
 exports.get = (req, res, next) => {
     logger.info(req.params.id);
     let id = req.params.id;
-    
+  
     let bandera = false;
     
     var anun = {
@@ -117,7 +117,50 @@ exports.put = (req, res, next) => {
     logger.info(req.params.id);
     logger.info(req.body);
     let id = req.params.id;
+       
     let update = req.body;
+    
+    var requeridos = [];
+    if(update.contenido == null){
+        var contenido = "contenido";
+        requeridos.push(contenido);
+    }
+    
+    if(update.autor == null){
+        var autor = "autor";
+        requeridos.push(autor);
+    }
+    
+    if(update.ubicacion == null){
+        var ubicacion = "ubicacion";
+        requeridos.push(ubicacion);
+    }
+    
+    if(requeridos.length > 0){
+        res.json({"mensaje":"Los siguientes campos son requeridos",
+                 "datos" : requeridos});
+    }
+    
+    var tamano = [];
+    if(update.contenido.length > 280){
+        var contenido = "contenido, Máximo 280 caracteres";
+        tamano.push(contenido);
+    }
+    
+    if(update.autor.length > 32){
+        var autor = "autor, Máximo 32 caracteres";
+        tamano.push(autor);
+    }
+    
+    if(update.ubicacion.length > 64){
+        var ubicacion = "ubicacion, Máximo 64 caracteres";
+        tamano.push(ubicacion);
+    }
+    
+    if(tamano.length > 0){
+        res.json({"mensaje":"Los siguientes campos exceden el tamaño permitido",
+                 "datos" : tamano});
+    }
     
     let bandera = false;
 	
