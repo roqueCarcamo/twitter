@@ -26,9 +26,11 @@ node index.js
 
 
 # Guardar Anuncio
-Url: http://127.0.0.1:3000/twitter/anuncios
-Tipo: POST
-JSON: {
+*Url: http://127.0.0.1:3000/twitter/anuncios
+
+*Tipo: POST
+
+*JSON: {
 	"contenido": "Nuevo anuncio",
 	"autor":"Rodolfo",
 	"ubicacion":"Cartagena"
@@ -36,7 +38,7 @@ JSON: {
 
 *Codigo : 201
 
-Respuesta Json: {
+* Respuesta Json: {
 	"mensaje": "Anuncio creado con éxito.!"
 }
 
@@ -46,15 +48,17 @@ Tipo datos:
 * ubicacion = String (Requerido)
 
 # Consultar Anuncio por Id
-Url: http://127.0.0.1:3000/twitter/anuncios/:Id
-Tipo: GET
-JSON: Ninguno.
+*Url: http://127.0.0.1:3000/twitter/anuncios/:Id
+
+*Tipo: GET
+
+*JSON: Ninguno.
 
 :Id = Id del anuncio creado. (Requerido)
 
 *Codigo : 200
 
-Respuesta Json:
+* Respuesta Json:
 {
     "id": 2,
     "contenido": "Nueva prueba",
@@ -65,13 +69,15 @@ Respuesta Json:
 }
 
 # Listar Anuncios
-Url: http://127.0.0.1:3000/twitter/anuncios
-Tipo: GET
-JSON: Ninguno.
+*Url: http://127.0.0.1:3000/twitter/anuncios
+
+*Tipo: GET
+
+*JSON: Ninguno.
 
 *Codigo : 200
 
-Respuesta Json:
+* Respuesta Json:
 [
     {
         "id": 1,
@@ -92,9 +98,11 @@ Respuesta Json:
  ]
  
 # Modificar Anuncio por Id
-Url: http://127.0.0.1:3000/twitter/anuncios/:Id
-Tipo: PUT
-JSON: {
+*Url: http://127.0.0.1:3000/twitter/anuncios/:Id
+
+*Tipo: PUT
+
+*JSON: {
     "contenido": "Nuevo anuncio modificado",
     "autor": "Pablo",
     "ubicacion": "Sincelejo"
@@ -104,21 +112,23 @@ JSON: {
 
 *Codigo : 200
 
-Respuesta Json:
+* Respuesta Json:
 {
 	"mensaje": "Anuncio modificado con éxito.!"
 }
 
 # Eliminar Anuncio por Id
-Url: http://127.0.0.1:3000/twitter/anuncios/:Id
-Tipo: DELETE
-JSON: Ninguno
+*Url: http://127.0.0.1:3000/twitter/anuncios/:Id
+
+*Tipo: DELETE
+
+*JSON: Ninguno
 
 :Id = Id del anuncio creado. (Requerido)
 
 *Codigo : 200
 
-Respuesta Json:
+* Respuesta Json:
 {
 	"mensaje": "Anuncio eliminado con éxito.!"
 }
