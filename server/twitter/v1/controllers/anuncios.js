@@ -115,7 +115,7 @@ exports.get = (req, res, next) => {
    	    res.json(anun)
      } else {
         res.status(404);
-   	    res.json({"mensaje": "El id del anuncio no fue encontrado"})
+   	    res.json({"mensaje": "El id del anuncio no fue encontrado.!"})
      }
 };
 
@@ -190,7 +190,7 @@ exports.put = (req, res, next) => {
    	    res.json({"mensaje": "Anuncio modificado con éxito.!"})
      } else {
         res.status(404);
-   	    res.json({"mensaje": "El id del anuncio no fue encontrado"})
+   	    res.json({"mensaje": "El id del anuncio no fue encontrado.!"})
      }
 };
 
@@ -212,6 +212,6 @@ exports.delete = (req, res, next) => {
    	 res.json({"mensaje":"Anuncio eliminado con éxito.!"})
    } else {
      res.status(404);
-   	 res.json({"mensaje":"El id del anuncio no fue encontrado"})
+   	 res.json({"mensaje":"El id del anuncio no fue encontrado.!"})
    }
 };
