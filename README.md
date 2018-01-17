@@ -34,7 +34,8 @@ JSON: {
 	"ubicacion":"Cartagena"
 }
 
-Codigo : 201
+*Codigo : 201
+
 Respuesta Json: {
 	"mensaje": "Anuncio creado con éxito.!"
 }
@@ -51,7 +52,8 @@ JSON: Ninguno.
 
 :Id = Id del anuncio creado. (Requerido)
 
-Codigo : 201
+*Codigo : 200
+
 Respuesta Json:
 {
     "id": 2,
@@ -67,7 +69,8 @@ Url: http://127.0.0.1:3000/twitter/anuncios
 Tipo: GET
 JSON: Ninguno.
 
-Codigo : 200
+*Codigo : 200
+
 Respuesta Json:
 [
     {
@@ -99,7 +102,8 @@ JSON: {
 
 :Id = Id del anuncio creado. (Requerido)
 
-Codigo : 201
+*Codigo : 200
+
 Respuesta Json:
 {
 	"mensaje": "Anuncio modificado con éxito.!"
@@ -112,7 +116,8 @@ JSON: Ninguno
 
 :Id = Id del anuncio creado. (Requerido)
 
-Codigo : 201
+*Codigo : 200
+
 Respuesta Json:
 {
 	"mensaje": "Anuncio eliminado con éxito.!"
@@ -120,9 +125,8 @@ Respuesta Json:
 
 # Advertencias
 
-* Cuando no se envian los parametros requeridos
+* Cuando no se envian los parametros requeridos (Codigo : 406)
 
-Codigo : 406
 Respuesta Json:
 {
     "mensaje": "Los siguientes campos son requeridos",
@@ -131,9 +135,8 @@ Respuesta Json:
     ]
 }
 
-* Cuando se exceden el tamaño de caracteres permitidos
+* Cuando se exceden el tamaño de caracteres permitidos (Codigo : 406)
 
-Codigo : 406
 Respuesta Json:
 {
     "mensaje": "Los siguientes campos exceden el tamaño permitido",
@@ -142,18 +145,23 @@ Respuesta Json:
     ]
 }
 
-# Errores
-* Cuando se utiliza una url de un servicio no existente 
+* Cuando no se encuentra un id de anuncio (Codigo : 404)
 
-Codigo : 404
+Respuesta Json:
+{
+    "mensaje": "El id del anuncio no fue encontrado.!"
+}
+
+# Errores
+* Cuando se utiliza una url de un servicio no existente (Codigo : 404)
+
 Respuesta Json: 
 {
     "error": "Error. Servicio no encontrado"
 }
 
-* Errores internos en el servidor
+* Errores internos en el servidor (Codigo : 500)
 
-Codigo : 500
 Respuesta Json:
 {
     "error": Tipo error
