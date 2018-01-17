@@ -21,6 +21,7 @@ var anuncios = [{
     }];
 
 exports.all = (req, res, next) => {
+    res.status(200);
     res.json(anuncios);
 };
 
@@ -44,6 +45,7 @@ exports.post = (req, res, next) => {
     }
     
     if(requeridos.length > 0){
+        res.status(406);
         res.json({"mensaje":"Los siguientes campos son requeridos",
                  "datos" : requeridos});
     }
@@ -65,6 +67,7 @@ exports.post = (req, res, next) => {
     }
     
     if(tamano.length > 0){
+        res.status(406);
         res.json({"mensaje":"Los siguientes campos exceden el tamaño permitido",
                  "datos" : tamano});
     }
@@ -77,6 +80,7 @@ exports.post = (req, res, next) => {
         "fechaActualizacion":""
     }
     anuncios.push(anun);
+    res.status(201);
     res.json({"mensaje":"Anuncio creado con éxito.!"});
 };
 
@@ -107,8 +111,10 @@ exports.get = (req, res, next) => {
 	   	}
      }
      if (bandera) {
+        res.status(200);
    	    res.json(anun)
      } else {
+        res.status(404);
    	    res.json({"mensaje": "El id del anuncio no fue encontrado"})
      }
 };
@@ -137,6 +143,7 @@ exports.put = (req, res, next) => {
     }
     
     if(requeridos.length > 0){
+        res.status(406);
         res.json({"mensaje":"Los siguientes campos son requeridos",
                  "datos" : requeridos});
     }
@@ -158,6 +165,7 @@ exports.put = (req, res, next) => {
     }
     
     if(tamano.length > 0){
+        res.status(406);
         res.json({"mensaje":"Los siguientes campos exceden el tamaño permitido",
                  "datos" : tamano});
     }
@@ -178,8 +186,10 @@ exports.put = (req, res, next) => {
 	   	}
      }
      if (bandera) {
+        res.status(200);
    	    res.json({"mensaje": "Anuncio modificado con éxito.!"})
      } else {
+        res.status(404);
    	    res.json({"mensaje": "El id del anuncio no fue encontrado"})
      }
 };
@@ -198,8 +208,10 @@ exports.delete = (req, res, next) => {
      }
 
    if (bandera) {
+     res.status(200);
    	 res.json({"mensaje":"Anuncio eliminado con éxito.!"})
    } else {
+     res.status(404);
    	 res.json({"mensaje":"El id del anuncio no fue encontrado"})
    }
 };
