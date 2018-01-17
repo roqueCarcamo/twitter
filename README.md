@@ -116,7 +116,7 @@ JSON: Ninguno
 
 :Id = Id del anuncio creado. (Requerido)
 
-*Codigo : 201
+*Codigo : 200
 
 Respuesta Json:
 {
@@ -143,6 +143,13 @@ Respuesta Json:
     "datos": [
         "autor, Máximo 32 caracteres"
     ]
+}
+
+* Cuando no se encuentra un id de anuncio (Codigo : 404)
+
+Respuesta Json:
+{
+    "mensaje": "El id del anuncio no fue encontrado.!"
 }
 
 # Errores
