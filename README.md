@@ -81,21 +81,21 @@ Tipo datos:
 [
     {
         "id": 1,
-        "contenido": "Nuevo anuncio",
-        "autor": "Rodolfo",
-        "ubicacion": "Cartagena",
-        "fechaCreacion": "01/15/2018",
-        "fechaActualizacion": ""
+        "contenido": "Primer anuncio",
+        "autor": "Luis Mesa",
+        "ubicacion": "Barranquilla",
+        "fechaCreacion": "2018-01-16T10:09:15-05:00",
+        "fechaActualizacion": "2018-01-16T10:09:40-05:00"
     },
     {
         "id": 2,
-        "contenido": "Anuncio nuevo",
-        "autor": "Carlos",
-        "ubicacion": "Barranquilla",
-        "fechaCreacion": "01/15/2018",
-        "fechaActualizacion": ""
+        "contenido": "Segundo anuncio",
+        "autor": "Pedro Mesa",
+        "ubicacion": "Cartagena",
+        "fechaCreacion": "2018-02-16T10:09:20-05:00",
+        "fechaActualizacion": "2018-03-16T10:09:40-05:00"
     }
- ]
+]
  
 # Modificar Anuncio por Id
 *Url: http://127.0.0.1:3000/twitter/anuncios/:Id
