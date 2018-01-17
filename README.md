@@ -22,8 +22,8 @@ npm install
 node index.js 
 
 # Formatos JSON
+* Content-Type : application/json
 
-[{"key":"Content-Type","value":"application/json","description":""}]
 
 # Guardar Anuncio
 Url: http://127.0.0.1:3000/twitter/anuncios
@@ -133,15 +133,20 @@ Respuesta:
 
 # Errores
 * Cuando se utiliza una url de un servicio no existente
+
+Respuesta Json: 
+
 {
     "error": "Error. Servicio no encontrado"
 }
 
-*Errores internos en el servidor
+* Errores internos en el servidor
+
+Respuesta Json:
+
 {
     "error": Tipo error
 }
-
 
 Autor: Rodolfo Roque Cárcamo Mesa
 
