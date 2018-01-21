@@ -318,24 +318,18 @@ Tipo datos:
 
 # Advertencias
 
-* Cuando no se envian los parametros requeridos (Codigo : 406)
+* Cuando no se envian los parametros requeridos (Codigo : 500)
 
 Respuesta Json:
 {
-    "mensaje": "Los siguientes campos son requeridos",
-    "datos": [
-        "content"
-    ]
+    "error": "Error: ValidationError: content: Path `content` is required."
 }
 
 * Cuando se exceden el tamaño de caracteres permitidos (Codigo : 406)
 
 Respuesta Json:
 {
-    "mensaje": "Los siguientes campos exceden el tamaño permitido",
-    "datos": [
-        "author, Máximo 32 caracteres"
-    ]
+    "error": "Error: ValidationError: firstname: Path `firstname` (`Rodolfo Roque Carcamo Mendoza Mesa`) is longer than the maximum allowed length (32)."
 }
 
 * Cuando no se encuentra un id de anuncio o usuario (Codigo : 404)
