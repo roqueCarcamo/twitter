@@ -19,7 +19,6 @@ app.use(morgan("common"));
 
 // parse application/x-www-form-urlencoded 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 // parse application/json 
 app.use(bodyParser.json());

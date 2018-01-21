@@ -2,8 +2,6 @@
 
 const logger = require("winston");
 
-let moment = require("moment")
-
 const Model = require('./model');
 
 exports.find = (req, res, next, id) => {
@@ -22,17 +20,27 @@ exports.find = (req, res, next, id) => {
 };
 
 exports.all = (req, res, next) => {
-   Model.find()
-        .then( doc => {
-            res.status(200);
-            res.json(doc)
+    const limit = Number(req.query.limit) || 10;
+    const skip = Number(req.query.skip) || 0;
+    
+    Model
+        .find()
+        .skip(skip)
+        .limit(limit)
+        .populate('author')
+        .then( docs => {
+            res.json({
+                twests: docs,
+                limit,
+                skip
+            })
         })
         .catch( err => {
             next(new Error(err));
         });
 };
 
-exports.post = (req, res, next) => {
+exports.create = (req, res, next) => {
     logger.info(req.body);
     const body = req.body;
     

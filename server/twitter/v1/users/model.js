@@ -11,8 +11,12 @@ const schema = new Schema({
         required: true
     },
     email:{
-        type:String,
-        required:true
+        type: String,
+        required: true
+    },
+    status:{
+        type: Boolean,
+        default:true
     }
     },{
         timestamps:true

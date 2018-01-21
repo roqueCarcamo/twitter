@@ -8,14 +8,14 @@ const schema = new Schema({
     },
     author:{
         type: Schema.Types.ObjectId,
-        required: 'user'
+        ref: 'user'
     },
     location:{
         type:String,
-        required:true
+        required: true
     }
     },{
         timestamps:true
 });
 
-module.exports = mongoose.model('twet', schema);
+module.exports = mongoose.model('tweet', schema);
