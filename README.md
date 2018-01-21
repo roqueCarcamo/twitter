@@ -26,14 +26,14 @@ node index.js
 
 
 # Guardar Anuncio
-*Url: http://127.0.0.1:3000/twitter/anuncios
+*Url: http://127.0.0.1:8080/twitter/twests
 
 *Tipo: POST
 
 *JSON: {
-	"contenido": "Nuevo anuncio",
-	"autor":"Rodolfo",
-	"ubicacion":"Cartagena"
+	"content": "Nuevo anuncio",
+	"author":"Rodolfo",
+	"location":"Cartagena"
 }
 
 *Codigo : 201
@@ -43,12 +43,12 @@ node index.js
 }
 
 Tipo datos: 
-* contenido = String (Requerido)
-* autor = String (Requerido)
-* ubicacion = String (Requerido)
+* content = String (Requerido)
+* author = String (Requerido)
+* location = String (Requerido)
 
 # Consultar Anuncio por Id
-*Url: http://127.0.0.1:3000/twitter/anuncios/:Id
+*Url: http://127.0.0.1:8080/twitter/twests/:Id
 
 *Tipo: GET
 
@@ -60,16 +60,15 @@ Tipo datos:
 
 * Respuesta Json:
 {
-    "id": 2,
-    "contenido": "Nueva prueba",
-    "autor": "Roque",
-    "ubicacion": "Barranquilla",
+    "content": "Nueva prueba",
+    "author": "Roque",
+    "location": "Barranquilla",
     "fechaCreacion": "2018-01-16T10:09:15-05:00",
     "fechaActualizacion": ""
 }
 
 # Listar Anuncios
-*Url: http://127.0.0.1:3000/twitter/anuncios
+*Url: http://127.0.0.1:8080/twitter/twests
 
 *Tipo: GET
 
@@ -81,31 +80,31 @@ Tipo datos:
 [
     {
         "id": 1,
-        "contenido": "Primer anuncio",
-        "autor": "Luis Mesa",
-        "ubicacion": "Barranquilla",
+        "content": "Primer anuncio",
+        "author": "Luis Mesa",
+        "location": "Barranquilla",
         "fechaCreacion": "2018-01-16T10:09:15-05:00",
         "fechaActualizacion": "2018-01-16T10:09:40-05:00"
     },
     {
         "id": 2,
-        "contenido": "Segundo anuncio",
-        "autor": "Pedro Mesa",
-        "ubicacion": "Cartagena",
+        "content": "Segundo anuncio",
+        "author": "Pedro Mesa",
+        "location": "Cartagena",
         "fechaCreacion": "2018-02-16T10:09:20-05:00",
         "fechaActualizacion": "2018-03-16T10:09:40-05:00"
     }
 ]
  
 # Modificar Anuncio por Id
-*Url: http://127.0.0.1:3000/twitter/anuncios/:Id
+*Url: http://127.0.0.1:8080/twitter/twests/:Id
 
 *Tipo: PUT
 
 *JSON: {
-    "contenido": "Nuevo anuncio modificado",
-    "autor": "Pablo",
-    "ubicacion": "Sincelejo"
+    "content": "Nuevo anuncio modificado",
+    "author": "Pablo",
+    "location": "Sincelejo"
 }
 
 :Id = Id del anuncio creado. (Requerido)
@@ -118,7 +117,7 @@ Tipo datos:
 }
 
 # Eliminar Anuncio por Id
-*Url: http://127.0.0.1:3000/twitter/anuncios/:Id
+*Url: http://127.0.0.1:8080/twitter/twests/:Id
 
 *Tipo: DELETE
 
@@ -141,7 +140,7 @@ Respuesta Json:
 {
     "mensaje": "Los siguientes campos son requeridos",
     "datos": [
-        "contenido"
+        "content"
     ]
 }
 
@@ -151,7 +150,7 @@ Respuesta Json:
 {
     "mensaje": "Los siguientes campos exceden el tamaño permitido",
     "datos": [
-        "autor, Máximo 32 caracteres"
+        "author, Máximo 32 caracteres"
     ]
 }
 
