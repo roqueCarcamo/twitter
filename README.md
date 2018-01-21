@@ -2,7 +2,8 @@
 Sistema de avisos, donde los usuarios podrán publicar su contenido en un muro público.
 
 # Requsitos
-node js ^8.x.x
+* node js ^8.x.x
+* Instalar mongoDB
 
 # Instalador 
 Clonar el repositorio : 
@@ -14,9 +15,9 @@ npm install
 # Depencias
 * "body-parser": "^1.18.2",
 * "express": "^4.16.2",
-* "moment": "^2.20.1",
 * "morgan": "^1.9.0",
 * "winston": "^2.4.0"
+* "mongoose": "^5.0.1"
 
 # Correr el proyecto
 node index.js 
@@ -172,7 +173,6 @@ Tipo datos:
     }
 }
 
-
 # Guardar Anuncio
 *Url: http://127.0.0.1:8080/twitter/tweets
 
@@ -325,7 +325,7 @@ Respuesta Json:
     "error": "Error: ValidationError: content: Path `content` is required."
 }
 
-* Cuando se exceden el tamaño de caracteres permitidos (Codigo : 406)
+* Cuando se exceden el tamaño de caracteres permitidos (Codigo : 500)
 
 Respuesta Json:
 {
@@ -344,7 +344,7 @@ Respuesta Json:
 
 Respuesta Json: 
 {
-    "error": "Error. Servicio no encontrado"
+    "error": "Error. Service not found"
 }
 
 * Errores internos en el servidor (Codigo : 500)

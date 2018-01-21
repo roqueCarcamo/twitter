@@ -28,7 +28,7 @@ app.use("/twitter", api);
 app.use("/twitter/v1", api);
 
 app.use( (req, res, next) => {
-  logger.info("Servicio no encontrado");
+  logger.info("Error. Service not found");
   res.status(404);
   res.json({
     "error": "Error. Service not found"
