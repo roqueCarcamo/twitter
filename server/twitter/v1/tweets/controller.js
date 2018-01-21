@@ -11,7 +11,7 @@ exports.find = (req, res, next, id) => {
                 req.doc = doc;
                 next();
             }else{
-                res.json({message:"Document not found"})
+                res.json({message:"Id does not exist"})
             }
         })
         .catch( err => {
@@ -47,7 +47,9 @@ exports.create = (req, res, next) => {
     let document = new Model(body);
     document.save()
         .then( doc => {
-            res.json(doc)
+            res.json({
+                message:"Successfully created tweet",
+                content: doc})
         })
         .catch( err => {
             next(new Error(err));
@@ -66,7 +68,9 @@ exports.update = (req, res, next) => {
      
     document.save()
         .then(doc => {
-             res.json(doc);
+             res.json({
+                message:"Successfully modified tweet",
+                content: doc});
          })
         .catch(err => {
            next(new Error(err));
@@ -79,7 +83,10 @@ exports.delete = (req, res, next) => {
     
     doc.remove()
         .then( deleted => {
-            res.json(deleted);
+            res.json({
+                message:"Successfully deleted tweet",
+                content: deleted}
+                );
         })
         .catch( err => {
             next(new Error(err));

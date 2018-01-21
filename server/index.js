@@ -31,7 +31,7 @@ app.use( (req, res, next) => {
   logger.info("Servicio no encontrado");
   res.status(404);
   res.json({
-    "error": "Error. Servicio no encontrado"
+    "error": "Error. Service not found"
   });
 });
 

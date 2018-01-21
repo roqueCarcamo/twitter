@@ -38,7 +38,17 @@ node index.js
 *Codigo : 201
 
 * Respuesta Json: {
-	"mensaje": "Usuario creado con éxito.!"
+    "message": "Successfully created user",
+    "conten": {
+        "status": true,
+        "_id": "5a6438a34b40da33202342b7",
+        "firstname": "Luis",
+        "lastname": "Mesa",
+        "email": "mesaLuis@gmail.com",
+        "createdAt": "2018-01-21T06:52:19.612Z",
+        "updatedAt": "2018-01-21T06:52:19.612Z",
+        "__v": 0
+    }
 }
 
 Tipo datos: 
@@ -59,11 +69,14 @@ Tipo datos:
 
 * Respuesta Json:
 {
-    "firstname": "Nueva prueba",
-    "lastname": "Roque",
-    "email": "Barranquilla",
-    "fechaCreacion": "2018-01-16T10:09:15-05:00",
-    "fechaActualizacion": ""
+    "status": true,
+    "_id": "5a6438a34b40da33202342b7",
+    "firstname": "Luis",
+    "lastname": "Mesa",
+    "email": "mesaLuis@gmail.com",
+    "createdAt": "2018-01-21T06:52:19.612Z",
+    "updatedAt": "2018-01-21T06:52:19.612Z",
+    "__v": 0
 }
 
 # Listar Usuarios
@@ -81,8 +94,8 @@ Tipo datos:
         {
             "status": true,
             "_id": "5a641a7fe8bcb529ac475562",
-            "firstname": "Rodolfo",
-            "lastname": "Roque",
+            "firstname": "Pedro",
+            "lastname": "Luis",
             "email": "carcamomesa@gmail.com",
             "createdAt": "2018-01-21T04:43:43.634Z",
             "updatedAt": "2018-01-21T04:43:43.634Z",
@@ -109,9 +122,9 @@ Tipo datos:
 *Tipo: PUT
 
 *JSON: {
-    "firstname": "Pablo",
-    "lastname": "Meza",
-    "email": "pablomeza@gmail.com"
+	"firstname": "Marcos",
+	"lastname": "Robles",
+	"email":"roblesMarcos@gmail.com"
 }
 
 :Id = Id del usuario creado. (Requerido)
@@ -120,7 +133,17 @@ Tipo datos:
 
 * Respuesta Json:
 {
-	"mensaje": "Usuario modificado con éxito.!"
+    "message": "Successfully modified user",
+    "content": {
+        "status": false,
+        "_id": "5a6438a34b40da33202342b7",
+        "firstname": "Marcos",
+        "lastname": "Robles",
+        "email": "roblesMarcos@gmail.com",
+        "createdAt": "2018-01-21T06:52:19.612Z",
+        "updatedAt": "2018-01-21T06:55:49.749Z",
+        "__v": 0
+    }
 }
 
 # Eliminar Usuario por Id (Deshabilitar)
@@ -136,7 +159,17 @@ Tipo datos:
 
 * Respuesta Json:
 {
-	"mensaje": "Usuario deshabilitado con éxito.!"
+    "message": "User successfully disabled",
+    "content": {
+        "status": false,
+        "_id": "5a6438a34b40da33202342b7",
+        "firstname": "Luis",
+        "lastname": "Mesa",
+        "email": "mesaLuis@gmail.com",
+        "createdAt": "2018-01-21T06:52:19.612Z",
+        "updatedAt": "2018-01-21T06:54:05.502Z",
+        "__v": 0
+    }
 }
 
 
@@ -146,20 +179,30 @@ Tipo datos:
 *Tipo: POST
 
 *JSON: {
-	"content": "Nuevo anuncio",
-	"author":"Rodolfo",
-	"location":"Cartagena"
+	"content": "Nuevo anuncio 1",
+	"author":"5a641a7fe8bcb529ac475562",
+	"location":"Barranquilla"
 }
 
 *Codigo : 201
 
-* Respuesta Json: {
-	"mensaje": "Anuncio creado con éxito.!"
+* Respuesta Json: 
+{
+    "message": "Successfully created tweet",
+    "content": {
+        "_id": "5a643b01cbd91d2618e310b2",
+        "content": "Nuevo anuncio 1",
+        "author": "5a641a7fe8bcb529ac475562",
+        "location": "Barranquilla",
+        "createdAt": "2018-01-21T07:02:25.133Z",
+        "updatedAt": "2018-01-21T07:02:25.133Z",
+        "__v": 0
+    }
 }
 
 Tipo datos: 
 * content = String (Requerido)
-* author = String (Requerido)
+* author = String (Id del usuario creado) (Requerido)
 * location = String (Requerido)
 
 # Consultar Anuncio por Id
@@ -175,11 +218,13 @@ Tipo datos:
 
 * Respuesta Json:
 {
-    "content": "Nueva prueba",
-    "author": "Roque",
+    "_id": "5a643b01cbd91d2618e310b2",
+    "content": "Nuevo anuncio 1",
+    "author": "5a641a7fe8bcb529ac475562",
     "location": "Barranquilla",
-    "fechaCreacion": "2018-01-16T10:09:15-05:00",
-    "fechaActualizacion": ""
+    "createdAt": "2018-01-21T07:02:25.133Z",
+    "updatedAt": "2018-01-21T07:02:25.133Z",
+    "__v": 0
 }
 
 # Listar Anuncios
@@ -192,24 +237,30 @@ Tipo datos:
 *Codigo : 200
 
 * Respuesta Json:
-[
-    {
-        "id": 1,
-        "content": "Primer anuncio",
-        "author": "Luis Mesa",
-        "location": "Barranquilla",
-        "fechaCreacion": "2018-01-16T10:09:15-05:00",
-        "fechaActualizacion": "2018-01-16T10:09:40-05:00"
-    },
-    {
-        "id": 2,
-        "content": "Segundo anuncio",
-        "author": "Pedro Mesa",
-        "location": "Cartagena",
-        "fechaCreacion": "2018-02-16T10:09:20-05:00",
-        "fechaActualizacion": "2018-03-16T10:09:40-05:00"
-    }
-]
+{
+    "twests": [
+        {
+            "_id": "5a642ffe0d8fb91fcc3357c2",
+            "content": "Nuevo anuncio 2",
+            "author": {
+                "status": true,
+                "_id": "5a641a7fe8bcb529ac475562",
+                "firstname": "Pedro",
+                "lastname": "Luis",
+                "email": "carcamomesa@gmail.com",
+                "createdAt": "2018-01-21T04:43:43.634Z",
+                "updatedAt": "2018-01-21T04:43:43.634Z",
+                "__v": 0
+            },
+            "location": "Barranquilla",
+            "createdAt": "2018-01-21T06:15:26.468Z",
+            "updatedAt": "2018-01-21T06:15:26.468Z",
+            "__v": 0
+        }
+    ],
+    "limit": 10,
+    "skip": 0
+}
  
 # Modificar Anuncio por Id
 *Url: http://127.0.0.1:8080/twitter/tweets/:Id
@@ -217,9 +268,9 @@ Tipo datos:
 *Tipo: PUT
 
 *JSON: {
-    "content": "Nuevo anuncio modificado",
-    "author": "Pablo",
-    "location": "Sincelejo"
+	"content": "Anuncion modificado",
+	"author":"5a641a7fe8bcb529ac475562",
+	"location":"Sincelejo"
 }
 
 :Id = Id del anuncio creado. (Requerido)
@@ -228,7 +279,16 @@ Tipo datos:
 
 * Respuesta Json:
 {
-	"mensaje": "Anuncio modificado con éxito.!"
+    "message": "Successfully modified tweet",
+    "content": {
+        "_id": "5a643b01cbd91d2618e310b2",
+        "content": "Anuncion modificado",
+        "author": "5a641a7fe8bcb529ac475562",
+        "location": "Sincelejo",
+        "createdAt": "2018-01-21T07:02:25.133Z",
+        "updatedAt": "2018-01-21T07:05:04.054Z",
+        "__v": 0
+    }
 }
 
 # Eliminar Anuncio por Id
@@ -244,7 +304,16 @@ Tipo datos:
 
 * Respuesta Json:
 {
-	"mensaje": "Anuncio eliminado con éxito.!"
+    "message": "Successfully deleted tweet",
+    "content": {
+        "_id": "5a643b01cbd91d2618e310b2",
+        "content": "Anuncion modificado",
+        "author": "5a641a7fe8bcb529ac475562",
+        "location": "Sincelejo",
+        "createdAt": "2018-01-21T07:02:25.133Z",
+        "updatedAt": "2018-01-21T07:05:04.054Z",
+        "__v": 0
+    }
 }
 
 # Advertencias
@@ -269,11 +338,11 @@ Respuesta Json:
     ]
 }
 
-* Cuando no se encuentra un id de anuncio (Codigo : 404)
+* Cuando no se encuentra un id de anuncio o usuario (Codigo : 404)
 
 Respuesta Json:
 {
-    "mensaje": "El id del anuncio no fue encontrado.!"
+    "message": "Id does not exist"
 }
 
 # Errores
