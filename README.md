@@ -36,11 +36,11 @@ node index.js
 	"email":"carcamomesa@gmail.com"
 }
 
-*Codigo : 201
+*Codigo : 200
 
 * Respuesta Json: {
     "message": "Successfully created user",
-    "conten": {
+    "content": {
         "status": true,
         "_id": "5a6438a34b40da33202342b7",
         "firstname": "Luis",
@@ -184,7 +184,7 @@ Tipo datos:
 	"location":"Barranquilla"
 }
 
-*Codigo : 201
+*Codigo : 200
 
 * Respuesta Json: 
 {
