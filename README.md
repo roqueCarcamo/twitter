@@ -87,6 +87,9 @@ Tipo datos:
 
 *JSON: Ninguno.
 
+*limit=Cantidad final de registros
+*skip=Cantidad inicial de registros
+
 *Codigo : 200
 
 * Respuesta Json:
@@ -129,6 +132,11 @@ Tipo datos:
 }
 
 :Id = Id del usuario creado. (Requerido)
+
+Tipo datos: 
+* firstname = String
+* lastname = String 
+* email = String
 
 *Codigo : 200
 
@@ -234,6 +242,9 @@ Tipo datos:
 
 *JSON: Ninguno.
 
+*limit=Cantidad final de registros
+*skip=Cantidad inicial de registros
+
 *Codigo : 200
 
 * Respuesta Json:
@@ -274,6 +285,11 @@ Tipo datos:
 }
 
 :Id = Id del anuncio creado. (Requerido)
+
+Tipo datos: 
+* content = String 
+* author = String (Id del usuario creado) 
+* location = String
 
 *Codigo : 200
 
@@ -322,7 +338,7 @@ Tipo datos:
 
 Respuesta Json:
 {
-    "error": "Error: ValidationError: content: Path `content` is required."
+    "error": "Error: ValidationError: email: Path `email` is required., lastname: Path `lastname` is required., firstname: Path `firstname` is required."
 }
 
 * Cuando se exceden el tamaño de caracteres permitidos (Codigo : 500)

@@ -5,6 +5,7 @@ const logger = require("winston");
 const Model = require('./model');
 
 exports.find = (req, res, next, id) => {
+    logger.info(id);
     Model.findById(id)
         .then( doc => {
             if(doc){
@@ -20,6 +21,8 @@ exports.find = (req, res, next, id) => {
 };
 
 exports.all = (req, res, next) => {
+    logger.info(req.query.limit);
+    logger.info(req.query.skip);
     const limit = Number(req.query.limit) || 10;
     const skip = Number(req.query.skip) || 0;
     Model
@@ -39,6 +42,7 @@ exports.all = (req, res, next) => {
 };
 
 exports.create = (req, res, next) => {
+    logger.info(req.body);
     const body = req.body;
     
     let document = new Model(body);
@@ -58,6 +62,8 @@ exports.get = (req, res, next) => {
 };
 
 exports.update = (req, res, next) => {
+    logger.info(req.doc);
+    logger.info(req.body);
     let document = Object.assign(req.doc, req.body);
      
     document.save()
@@ -72,7 +78,9 @@ exports.update = (req, res, next) => {
 };
 
 exports.delete = (req, res, next) => {
+    logger.info(req.doc);
     let document = req.doc;
+    
     document.status = false;
     document.save()
         .then(doc => {
@@ -83,4 +91,22 @@ exports.delete = (req, res, next) => {
         .catch(err => {
            next(new Error(err));
          });
+};
+
+exports.validarUser = (req, res, next, id) => {
+    Model.findById(id)
+        .then( doc => {
+            if(doc){
+                req.doc = doc;
+                if(!doc.status){
+                    res.json({message:"User disabled"});
+                }
+            }else{
+                res.json({message:"User not exist"});
+            }
+           next();
+        })
+        .catch( err => {
+            next(new Error(err));
+        });
 };

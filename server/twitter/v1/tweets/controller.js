@@ -5,13 +5,14 @@ const logger = require("winston");
 const Model = require('./model');
 
 exports.find = (req, res, next, id) => {
+    logger.info(id);
     Model.findById(id)
         .then( doc => {
             if(doc){
                 req.doc = doc;
                 next();
             }else{
-                res.json({message:"Id does not exist"})
+                res.json({message:"Id does not exist"});
             }
         })
         .catch( err => {
@@ -20,6 +21,8 @@ exports.find = (req, res, next, id) => {
 };
 
 exports.all = (req, res, next) => {
+    logger.info(req.query.limit);
+    logger.info(req.query.skip);
     const limit = Number(req.query.limit) || 10;
     const skip = Number(req.query.skip) || 0;
     
@@ -64,6 +67,7 @@ exports.get = (req, res, next) => {
 exports.update = (req, res, next) => {
     logger.info(req.params.id);
     logger.info(req.body);
+     
     let document = Object.assign(req.doc, req.body);
      
     document.save()

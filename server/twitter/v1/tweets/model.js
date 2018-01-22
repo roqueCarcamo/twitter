@@ -9,7 +9,8 @@ const schema = new Schema({
     },
     author:{
         type: Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'user',
+        required: true,
     },
     location:{
         type:String,
