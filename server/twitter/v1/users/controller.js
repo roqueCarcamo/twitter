@@ -12,6 +12,7 @@ exports.find = (req, res, next, id) => {
                 req.doc = doc;
                 next();
             }else{
+                res.status(404);
                 res.json({message:"Id does not exist"})
             }
         })
