@@ -26,7 +26,7 @@ node index.js
 * Content-Type : application/json
 
 # Guardar Usuario
-*Url: http://127.0.0.1:8080/twitter/users
+*Url: http://127.0.0.1:8080/api/users
 
 *Tipo: POST
 
@@ -58,7 +58,7 @@ Tipo datos:
 * email = String (Requerido)
 
 # Consultar Usuario por Id
-*Url: http://127.0.0.1:8080/twitter/users/:Id
+*Url: http://127.0.0.1:8080/api/users/:Id
 
 *Tipo: GET
 
@@ -81,7 +81,7 @@ Tipo datos:
 }
 
 # Listar Usuarios
-*Url: http://127.0.0.1:8080/twitter/users
+*Url: http://127.0.0.1:8080/api/users
 
 *Tipo: GET
 
@@ -121,7 +121,7 @@ Tipo datos:
 }]
  
 # Modificar Usuario por Id
-*Url: http://127.0.0.1:8080/twitter/users/:Id
+*Url: http://127.0.0.1:8080/api/users/:Id
 
 *Tipo: PUT
 
@@ -156,7 +156,7 @@ Tipo datos:
 }
 
 # Eliminar Usuario por Id (Deshabilitar)
-*Url: http://127.0.0.1:8080/twitter/users/:Id
+*Url: http://127.0.0.1:8080/api/users/:Id
 
 *Tipo: DELETE
 
@@ -182,7 +182,7 @@ Tipo datos:
 }
 
 # Guardar Anuncio
-*Url: http://127.0.0.1:8080/twitter/tweets
+*Url: http://127.0.0.1:8080/api/tweets
 
 *Tipo: POST
 
@@ -214,7 +214,7 @@ Tipo datos:
 * location = String (Requerido)
 
 # Consultar Anuncio por Id
-*Url: http://127.0.0.1:8080/twitter/tweets/:Id
+*Url: http://127.0.0.1:8080/api/tweets/:Id
 
 *Tipo: GET
 
@@ -236,7 +236,7 @@ Tipo datos:
 }
 
 # Listar Anuncios
-*Url: http://127.0.0.1:8080/twitter/tweets
+*Url: http://127.0.0.1:8080/api/tweets
 
 *Tipo: GET
 
@@ -274,7 +274,7 @@ Tipo datos:
 }
  
 # Modificar Anuncio por Id
-*Url: http://127.0.0.1:8080/twitter/tweets/:Id
+*Url: http://127.0.0.1:8080/api/tweets/:Id
 
 *Tipo: PUT
 
@@ -308,7 +308,7 @@ Tipo datos:
 }
 
 # Eliminar Anuncio por Id
-*Url: http://127.0.0.1:8080/twitter/tweets/:Id
+*Url: http://127.0.0.1:8080/api/tweets/:Id
 
 *Tipo: DELETE
 
