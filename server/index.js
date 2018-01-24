@@ -10,7 +10,7 @@ const config = require('./../config');
 
 mongoose.connect(config.db.url);
 
-const api = require("./twitter/v1");
+const api = require("./api/v1");
 
 const app = express();
 
@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Configurar router and routes
-app.use("/twitter", api);
-app.use("/twitter/v1", api);
+app.use("/api", api);
+app.use("/api/v1", api);
 
 app.use( (req, res, next) => {
   logger.info("Error. Service not found");
